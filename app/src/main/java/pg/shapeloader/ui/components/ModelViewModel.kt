@@ -63,7 +63,9 @@ class ModelViewModel(application: Application) : AndroidViewModel(application) {
                 val model = ModelFactory.fromFile(file)
                 withContext(Dispatchers.Main) {
                     _selectedModel.value = model;
+                    _models.value += model;
                 }
+
 
             } catch (e: Exception) {
                 Log.e("ModelViewModel", "Błąd ładowania modelu: ${e.message}")
